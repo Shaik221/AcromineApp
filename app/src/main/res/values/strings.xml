@@ -3,4 +3,9 @@
     <string name="app_label">AcronymsApp</string>
     <string name="search_hint">Search for Acronym</string>
     <string name="search">Search</string>
+    <string name="frequency">Frequency :</string>
+    <string name="long_form">Long Form :</string>
+    <string name="since">Since :</string>
+    <string name="no_search">No Items to show..</string>
+    <string name="short_form">Short Form:</string>
 </resources>

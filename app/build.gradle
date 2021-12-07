@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -22,6 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        dataBinding true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -38,7 +42,27 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation "org.mockito:mockito-core:${versions.mockito}"
+    testImplementation "org.mockito:mockito-inline:${versions.mockito}"
+    testImplementation "io.mockk:mockk:${versions.mockk}"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    //dagger dependency
+    implementation "com.google.dagger:dagger:${versions.daggerVer}"
+    kapt  "com.google.dagger:dagger-compiler:${versions.daggerVer}"
+
+    implementation "com.squareup.moshi:moshi-adapters:${versions.moshi}"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"
+    implementation "androidx.activity:activity-ktx:${versions.x_lifecycle}"
+
+    //retrofit dependency
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+
+    //for testing retrofit.
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
 }
